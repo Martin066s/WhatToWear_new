@@ -8,14 +8,18 @@ import java.util.Objects;
 @Data
 @Entity
 @Table(name = "clothes")
-public class Clothes {
+public class Clothing {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false)
+    private Long userId;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String category;
+    @Column(nullable = false)
     private Long minTemp;
-    private Long maxTemp;
     private String pathPic;
 
     public Long getId() {
@@ -50,14 +54,6 @@ public class Clothes {
         this.minTemp = minTemp;
     }
 
-    public Long getMaxTemp() {
-        return maxTemp;
-    }
-
-    public void setMaxTemp(Long maxTemp) {
-        this.maxTemp = maxTemp;
-    }
-
     public String getPathPic() {
         return pathPic;
     }
@@ -66,27 +62,35 @@ public class Clothes {
         this.pathPic = pathPic;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Clothes clothes = (Clothes) o;
-        return Objects.equals(id, clothes.id) && Objects.equals(name, clothes.name) && Objects.equals(category, clothes.category) && Objects.equals(minTemp, clothes.minTemp) && Objects.equals(maxTemp, clothes.maxTemp) && Objects.equals(pathPic, clothes.pathPic);
+        Clothing clothing = (Clothing) o;
+        return Objects.equals(id, clothing.id) && Objects.equals(userId, clothing.userId) && Objects.equals(name, clothing.name) && Objects.equals(category, clothing.category) && Objects.equals(minTemp, clothing.minTemp) && Objects.equals(pathPic, clothing.pathPic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, category, minTemp, maxTemp, pathPic);
+        return Objects.hash(name);
     }
 
     @Override
     public String toString() {
-        return "Clothes{" +
+        return "Clothing{" +
                 "id=" + id +
+                ", userId=" + userId +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", minTemp=" + minTemp +
-                ", maxTemp=" + maxTemp +
                 ", pathPic='" + pathPic + '\'' +
                 '}';
     }

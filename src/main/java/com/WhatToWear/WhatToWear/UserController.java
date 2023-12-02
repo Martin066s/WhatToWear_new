@@ -1,20 +1,20 @@
 package com.WhatToWear.WhatToWear;
 
-import com.WhatToWear.WhatToWear.Model.Clothing;
-import com.WhatToWear.WhatToWear.repo.ClothesRepo;
+import com.WhatToWear.WhatToWear.Model.User;
+import com.WhatToWear.WhatToWear.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ClothesController {
+public class UserController {
 
     @Autowired
-    ClothesRepo clothesRepo;
+    UserRepo userRepo;
 
-    @PostMapping("/addClothing")
-    public void addClothing(@RequestBody Clothing clothing ){
-        clothesRepo.save(clothing);
+    @PostMapping("/addUser")
+    public void addUser(@RequestBody User user ){
+        userRepo.save(user);
     }
 }
