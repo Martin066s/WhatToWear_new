@@ -22,6 +22,9 @@ public class Clothing {
     private Long minTemp;
     private String pathPic;
 
+    public Clothing() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -19,6 +19,9 @@ public class User {
     private float longitude;
     private float latitude;
 
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }
