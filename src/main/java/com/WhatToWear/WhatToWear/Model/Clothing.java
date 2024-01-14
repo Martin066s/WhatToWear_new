@@ -1,36 +1,41 @@
 package com.WhatToWear.WhatToWear.Model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "clothes")
 public class Clothing {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    @Column(nullable = false)
-    private Long userId;
+    private long id;
+    private long userId;
     @Column(nullable = false)
     private String name;
-    @Column(nullable = false)
     private String category;
     @Column(nullable = false)
-    private Long minTemp;
+    private long minTemp;
     private String pathPic;
 
-    public Clothing() {
-    }
-
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -49,11 +54,11 @@ public class Clothing {
         this.category = category;
     }
 
-    public Long getMinTemp() {
+    public long getMinTemp() {
         return minTemp;
     }
 
-    public void setMinTemp(Long minTemp) {
+    public void setMinTemp(long minTemp) {
         this.minTemp = minTemp;
     }
 
@@ -63,14 +68,6 @@ public class Clothing {
 
     public void setPathPic(String pathPic) {
         this.pathPic = pathPic;
-    }
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     @Override
