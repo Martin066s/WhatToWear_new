@@ -1,4 +1,4 @@
-package com.WhatToWear.WhatToWear;
+package com.WhatToWear.WhatToWear.controller;
 
 import com.WhatToWear.WhatToWear.Model.User;
 import com.WhatToWear.WhatToWear.repo.UserRepo;
